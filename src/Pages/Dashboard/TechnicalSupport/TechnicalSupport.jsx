@@ -3,7 +3,7 @@ import React from 'react'
 function TechnicalSupport() {
   return (
     <div>
-      Under Development
+      <h1>Under Development</h1>
     </div>
   )
 }

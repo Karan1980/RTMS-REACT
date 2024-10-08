@@ -283,7 +283,6 @@ export const deletePosition = async (formData) => {
   }
 };
 
-
 //Add Position on the basic of department
 export const addPosition = async (formData) => {
   try {
@@ -315,6 +314,34 @@ export const getPosition = async (organizationName, departmentName) => {
   try {
     const response = await axios.get(
       `${ORGANIZATION_API}/get-positions?organizationName=${organizationName}&departmentName=${departmentName}`
+    );
+    return response.data;
+  } catch (error) {
+    return catchError(error);
+  }
+};
+
+//update department
+export const updatePosition = async (formData) => {
+  try {
+    const response = await axios.put(
+      `${ORGANIZATION_API}/update-position`,
+      formData
+    );
+    return response.data;
+  } catch (error) {
+    return catchError(error);
+  }
+};
+
+
+
+//Delete Position
+export const deletePosition = async (formData) => {
+  try {
+    const response = await axios.post(
+      `${ORGANIZATION_API}/delete-position`,
+      formData
     );
     return response.data;
   } catch (error) {
@@ -360,6 +387,33 @@ export const getApprovalChain = async (organizationName, departmentName) => {
   }
 };
 
+//update approval Chain
+export const updateApprovalChain = async (formData) => {
+  try {
+    const response = await axios.put(
+      `${ORGANIZATION_API}/update-approval-chain`,
+      formData
+    );
+    return response.data;
+  } catch (error) {
+    return catchError(error);
+  }
+};
+
+
+//delete Approval chain
+export const deleteApprovalChain = async (formData) => {
+  try {
+    const response = await axios.post(
+      `${ORGANIZATION_API}/delete-approval-chain`,
+      formData
+    );
+    return response.data;
+  } catch (error) {
+    return catchError(error);
+  }
+};
+
 //organization-add-data
 export const organizationAddData = async (formData) => {
   try {
@@ -373,11 +427,24 @@ export const organizationAddData = async (formData) => {
   }
 };
 
-// https://rtms-backend.onrender.com/api/v1/organization/organization-get-data?organizationName=Foxboro.in.co
+//http://localhost:5000/api/v1/organization/organization-get-data?organizationName=india.in.co
 export const getOrganizationData = async (organizationName) => {
   try {
     const response = await axios.get(
       `${ORGANIZATION_API}/organization-get-data?organizationName=${organizationName}`
+    );
+    return response.data;
+  } catch (error) {
+    return catchError(error);
+  }
+};
+
+//Update Organization
+export const updateOrganizationData = async (formData) => {
+  try {
+    const response = await axios.put(
+      `${ORGANIZATION_API}/organization-update-data`,
+      formData
     );
     return response.data;
   } catch (error) {
